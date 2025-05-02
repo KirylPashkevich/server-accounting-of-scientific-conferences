@@ -1,0 +1,245 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>server</name>
+    </assembly>
+    <members>
+        <member name="T:server.Controllers.AuthorController">
+            <summary>
+            Контроллер для управления авторами докладов
+            </summary>
+        </member>
+        <member name="M:server.Controllers.AuthorController.GetAuthors">
+            <summary>
+            Получает список всех авторов
+            </summary>
+            <returns>Коллекция авторов</returns>
+            <response code="200">Возвращает список авторов</response>
+        </member>
+        <member name="M:server.Controllers.AuthorController.GetAuthor(System.Int32)">
+            <summary>
+            Получает автора по идентификатору
+            </summary>
+            <param name="id">Идентификатор автора</param>
+            <returns>Информация об авторе</returns>
+            <response code="200">Автор найден</response>
+            <response code="404">Автор не найден</response>
+        </member>
+        <member name="M:server.Controllers.AuthorController.CreateAuthor(server.Models.Author)">
+            <summary>
+            Создает нового автора
+            </summary>
+            <param name="author">Данные автора</param>
+            <returns>Созданный автор</returns>
+            <response code="201">Автор успешно создан</response>
+            <response code="400">Некорректные данные</response>
+        </member>
+        <member name="M:server.Controllers.AuthorController.UpdateAuthor(System.Int32,server.Models.DTOs.AuthorUpdateDto)">
+            <summary>
+            Обновляет данные автора
+            </summary>
+            <param name="id">Идентификатор автора</param>
+            <param name="authorDto">Новые данные автора</param>
+            <returns>Обновленный автор</returns>
+            <response code="200">Автор успешно обновлен</response>
+            <response code="400">Некорректные данные</response>
+            <response code="404">Автор не найден</response>
+        </member>
+        <member name="M:server.Controllers.AuthorController.DeleteAuthor(System.Int32)">
+            <summary>
+            Удаляет автора
+            </summary>
+            <param name="id">Идентификатор автора</param>
+            <returns>Результат операции</returns>
+            <response code="204">Автор успешно удален</response>
+            <response code="404">Автор не найден</response>
+            <response code="400">Невозможно удалить автора, так как у него есть связанные доклады</response>
+        </member>
+        <member name="M:server.Controllers.ConferenceController.DeleteConference(System.Int32)">
+            <summary>
+            Удаляет конференцию
+            </summary>
+            <param name="id">Идентификатор конференции</param>
+            <returns>Результат операции</returns>
+            <response code="204">Конференция успешно удалена</response>
+            <response code="404">Конференция не найдена</response>
+            <response code="500">Внутренняя ошибка сервера</response>
+        </member>
+        <member name="M:server.Controllers.ConferenceController.UpdateConference(System.Int32,server.Models.Conference)">
+            <summary>
+            Обновляет данные конференции
+            </summary>
+            <param name="id">Идентификатор конференции</param>
+            <param name="conference">Обновленные данные конференции</param>
+            <returns>Результат операции</returns>
+            <response code="204">Данные успешно обновлены</response>
+            <response code="400">Некорректные данные</response>
+            <response code="404">Конференция не найдена</response>
+            <response code="500">Внутренняя ошибка сервера</response>
+        </member>
+        <member name="M:server.Controllers.LocationController.CreateLocation(server.Models.Location)">
+            <summary>
+            Создает новую локацию
+            </summary>
+            <param name="location">Данные локации</param>
+            <returns>Созданная локация</returns>
+            <response code="201">Локация успешно создана</response>
+            <response code="400">Некорректные данные</response>
+        </member>
+        <member name="M:server.Controllers.LocationController.DeleteLocation(System.Int32)">
+            <summary>
+            Удаляет локацию
+            </summary>
+            <param name="id">Идентификатор локации</param>
+            <returns>Результат операции</returns>
+            <response code="204">Локация успешно удалена</response>
+            <response code="404">Локация не найдена</response>
+            <response code="500">Внутренняя ошибка сервера</response>
+        </member>
+        <member name="M:server.Controllers.LocationController.UpdateLocation(System.Int32,server.Models.Location)">
+            <summary>
+            Обновляет данные локации
+            </summary>
+            <param name="id">Идентификатор локации</param>
+            <param name="location">Обновленные данные локации</param>
+            <returns>Результат операции</returns>
+            <response code="204">Данные успешно обновлены</response>
+            <response code="400">Некорректные данные</response>
+            <response code="404">Локация не найдена</response>
+            <response code="500">Внутренняя ошибка сервера</response>
+        </member>
+        <member name="T:server.Controllers.OrganizerController">
+            <summary>
+            Контроллер для управления организаторами конференций
+            </summary>
+        </member>
+        <member name="M:server.Controllers.OrganizerController.GetOrganizers">
+            <summary>
+            Получает список всех организаторов
+            </summary>
+            <returns>Коллекция организаторов</returns>
+            <response code="200">Возвращает список организаторов</response>
+        </member>
+        <member name="M:server.Controllers.OrganizerController.GetOrganizer(System.Int32)">
+            <summary>
+            Получает организатора по идентификатору
+            </summary>
+            <param name="id">Идентификатор организатора</param>
+            <returns>Информация об организаторе</returns>
+            <response code="200">Организатор найден</response>
+            <response code="404">Организатор не найден</response>
+        </member>
+        <member name="M:server.Controllers.OrganizerController.CreateOrganizer(server.Models.Organizer)">
+            <summary>
+            Создает нового организатора
+            </summary>
+            <param name="organizer">Данные организатора</param>
+            <returns>Созданный организатор</returns>
+            <response code="201">Организатор успешно создан</response>
+            <response code="400">Некорректные данные</response>
+        </member>
+        <member name="M:server.Controllers.OrganizerController.UpdateOrganizer(System.Int32,server.Models.Organizer)">
+            <summary>
+            Обновляет данные организатора
+            </summary>
+            <param name="id">Идентификатор организатора</param>
+            <param name="organizer">Обновленные данные организатора</param>
+            <returns>Результат операции</returns>
+            <response code="204">Данные успешно обновлены</response>
+            <response code="400">Некорректные данные</response>
+            <response code="404">Организатор не найден</response>
+        </member>
+        <member name="M:server.Controllers.OrganizerController.DeleteOrganizer(System.Int32)">
+            <summary>
+            Удаляет организатора
+            </summary>
+            <param name="id">Идентификатор организатора</param>
+            <returns>Результат операции</returns>
+            <response code="204">Организатор успешно удален</response>
+            <response code="404">Организатор не найден</response>
+        </member>
+        <member name="M:server.Controllers.ReportController.CreateReport(server.Models.Report)">
+            <summary>
+            Создает новый отчет
+            </summary>
+            <param name="report">Данные отчета</param>
+            <returns>Созданный отчет</returns>
+            <response code="201">Отчет успешно создан</response>
+            <response code="400">Некорректные данные</response>
+        </member>
+        <member name="M:server.Controllers.ReportController.DeleteReport(System.Int32)">
+            <summary>
+            Удаляет отчет
+            </summary>
+            <param name="id">Идентификатор отчета</param>
+            <returns>Результат операции</returns>
+            <response code="204">Отчет успешно удален</response>
+            <response code="404">Отчет не найден</response>
+            <response code="500">Внутренняя ошибка сервера</response>
+        </member>
+        <member name="M:server.Controllers.ReportController.UpdateReport(System.Int32,server.Models.Report)">
+            <summary>
+            Обновляет отчет
+            </summary>
+            <param name="id">Идентификатор отчета</param>
+            <param name="report">Обновленные данные отчета</param>
+            <returns>Результат операции</returns>
+            <response code="204">Отчет успешно обновлен</response>
+            <response code="400">Некорректные данные</response>
+            <response code="404">Отчет не найден</response>
+        </member>
+        <member name="M:server.Controllers.SponsorController.CreateSponsor(server.Models.DTOs.SponsorCreateDto)">
+            <summary>
+            Создает нового спонсора
+            </summary>
+            <param name="sponsorDto">Данные нового спонсора</param>
+            <returns>Созданный спонсор</returns>
+            <response code="201">Спонсор успешно создан</response>
+            <response code="400">Некорректные данные</response>
+        </member>
+        <member name="M:server.Controllers.SponsorController.UpdateSponsor(System.Int32,server.Models.DTOs.SponsorUpdateDto)">
+            <summary>
+            Обновляет данные спонсора
+            </summary>
+            <param name="id">Идентификатор спонсора</param>
+            <param name="sponsorDto">Обновленные данные спонсора</param>
+            <returns>Результат операции</returns>
+            <response code="204">Данные успешно обновлены</response>
+            <response code="400">Некорректные данные</response>
+            <response code="404">Спонсор не найден</response>
+        </member>
+        <member name="M:server.Controllers.SponsorController.DeleteSponsor(System.Int32)">
+            <summary>
+            Удаляет спонсора
+            </summary>
+            <param name="id">Идентификатор спонсора</param>
+            <returns>Результат операции</returns>
+            <response code="204">Спонсор успешно удален</response>
+            <response code="404">Спонсор не найден</response>
+        </member>
+        <member name="T:server.Migrations.InitialCreate">
+            <inheritdoc />
+        </member>
+        <member name="M:server.Migrations.InitialCreate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:server.Migrations.InitialCreate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:server.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="T:server.Migrations.UpdateUserSchema">
+            <inheritdoc />
+        </member>
+        <member name="M:server.Migrations.UpdateUserSchema.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:server.Migrations.UpdateUserSchema.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:server.Migrations.UpdateUserSchema.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
